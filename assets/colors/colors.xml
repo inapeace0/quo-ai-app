@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Main Branding -->
+    <color name="black_tulip">#58092B</color>
+    <color name="charcoal">#1E1E1E</color>
+    <color name="ivory">#EFE9DF</color>
+    <color name="gold">#F8B236</color>
+    <color name="evergreen">#13321E</color>
+    <color name="painite">#970012</color>
+    <color name="courage">#E2532C</color>
+    
+
+    <!-- Fonts Colors -->
+    <color name="quick_silver">#AAA5A2</color>
+    
+
+    <!-- Other Widget Colors -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+    <color name="floral_white">#FCF9F4</color>
+    <color name="transparent">#00000000</color>
+    <color name="white_coffee">#E5DFD5</color>
+    <color name="desert_storm">#F0E9E1</color>
+    <color name="cab_sav">#58092b</color>
+    <color name="grayish_white">#EEE9E3</color>
+    <color name="garden_background">#F8D699</color>
+    <color name="light_gray">#EAEAEB</color>
+
+    <!-- Auth Colors -->
+    <color name="blueDress">#FF1877F2</color>
+    <color name="crystalBlue">#FF55ACEE</color>
+    <color name="googleLogin">#DD4B39</color>
+</resources>

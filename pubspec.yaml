@@ -1,0 +1,86 @@
+name: quotionai
+description: A new Flutter project.
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.1.5 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.2
+  flutter_localizations:
+    sdk: flutter
+  flutter_screenutil: ^5.9.0
+  intl: ^0.18.0
+  intl_utils: ^2.8.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  build_runner: ^2.3.3
+  flutter_lints: ^2.0.0
+
+# To use our assets safely and easily.
+flutter_gen:
+  colors:
+    inputs:
+      - assets/colors/colors.xml
+  output: lib/generated/gen
+  integrations:
+    flutter_svg: true
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/
+    - assets/png/
+    - assets/svg/
+    - assets/gif/
+  fonts:
+    - family: Archivo
+      fonts:
+        - asset: assets/fonts/Archivo-Light.ttf
+          weight: 300
+        - asset: assets/fonts/Archivo-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Archivo-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/Archivo-Bold.ttf
+          weight: 700
+    - family: Poppins
+      fonts: 
+        - asset: assets\fonts\Poppins\Poppins-Light.ttf
+          weight: 300
+        - asset: assets\fonts\Poppins\Poppins-Regular.ttf
+          weight: 400
+        - asset: assets\fonts\Poppins\Poppins-Medium.ttf
+          weight: 500
+        - asset: assets\fonts\Poppins\Poppins-Bold.ttf
+          weight: 800
+    - family: Archivo-SemiExpanded
+      fonts:
+        - asset: assets/fonts/Archivo_SemiExpanded-Regular.ttf
+          weight: 400
+        - asset: assets/fonts/Archivo_SemiExpanded-Bold.ttf
+          weight: 700
+    - family: Montserrat
+      fonts:
+        - asset: assets/fonts/Montserrat.ttf
+    - family: PTMono
+      fonts:
+        - asset: assets/fonts/PTMono-Regular.ttf
+    - family: Roboto
+      fonts:
+        - asset: assets/fonts/Roboto-Light.ttf
+    - family: SpaceMono
+      fonts:
+        - asset: assets/fonts/SpaceMono-Regular.ttf
+
+flutter_intl:
+  enabled: true
+  arb_dir: assets/l10n
+  output_dir: lib/generated

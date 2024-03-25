@@ -1,0 +1,24 @@
+{
+  "appName": "Quotion AI",
+  "@@locale": "en",
+  "@appName": {
+    "description": "App name in english"
+  },
+  "aboutme": "About Me", 
+  "servicebusiness_type": "Service/Business Type:", 
+  "business_location": "Business Location:", 
+  "years_of_experience": "Years of Experience:", 
+  "wont_be_shown": "*Won’t Be Shown To Anyone, but Us*", 
+  "quotion_response": "Quotion Response", 
+  "business_quote": "The Business Quote", 
+  "given_price": "Given Price:", 
+  "prospect_budget": "Prospect’s Budget:", 
+  "production_cost": "Production Cost:", 
+  "production_quality": "Production Quality:", 
+  "feature": "Features:", 
+  "desired_outcome": "Desired Outcome:", 
+  "prospect_perceived_value": "Prospect’s Perceived Value:", 
+  "your_perceived_value": "Your Perceived Value:", 
+  "willingness_pay": "Willingness To Pay:", 
+  "your_competition": "Your Competition:"
+}
