@@ -38,8 +38,6 @@ flutter:
   assets:
     - assets/
     - assets/png/
-    - assets/svg/
-    - assets/gif/
   fonts:
     - family: Archivo
       fonts:
