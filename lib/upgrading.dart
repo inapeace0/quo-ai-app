@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:quotionai/core/components/dropdown.dart';
-import 'package:quotionai/core/components/numberfield.dart';
-import 'package:quotionai/core/components/textarea.dart';
+import 'package:go_router/go_router.dart';
 import 'package:quotionai/core/utils/theme/text_styles.dart';
 import 'package:quotionai/generated/gen/assets.gen.dart';
 import 'package:quotionai/generated/l10n.dart';
@@ -204,7 +202,7 @@ class _UpgradingState extends State<Upgrading> {
                 ElevatedButton(
                   onPressed: () {
                     // Add your button press logic here
-                    Navigator.pushNamed(context, '/');
+                    context.push('/');
                   },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all<Color>(
@@ -229,7 +227,7 @@ class _UpgradingState extends State<Upgrading> {
                 ElevatedButton(
                   onPressed: () {
                     // Add your button press logic here
-                    Navigator.pushNamed(context, '/');
+                    context.push('/');
                   },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all<Color>(

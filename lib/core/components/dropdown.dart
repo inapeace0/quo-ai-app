@@ -17,6 +17,7 @@ class DropdownField extends StatefulWidget {
 class _DropdownFieldState extends State<DropdownField> {
   final FocusNode _focus = FocusNode();
   bool isSelected = false;
+  String selectedValue = "Low";
 
   @override
   void initState() {
@@ -51,27 +52,53 @@ class _DropdownFieldState extends State<DropdownField> {
           ),
           10.verticalSpace,
         ],
-        Container(
-          width: double.infinity,
-          padding: EdgeInsets.symmetric(vertical: 5.h),
-          decoration: BoxDecoration(
-            border: Border.all(
-              color: const Color(0xFFCB8927),
-              width: 2.0,
+        Theme(
+          data: Theme.of(context).copyWith(
+            canvasColor: const Color(0xFF2F2E2E),
+          ),
+          child: Container(
+            width: double.infinity,
+            padding: EdgeInsets.symmetric(vertical: 18.sp, horizontal: 10.sp),
+            decoration: BoxDecoration(
+              border: Border.all(
+                color: const Color(0xFFCB8927),
+                width: 2.0,
+              ),
+              borderRadius: BorderRadius.circular(10.0),
             ),
-            borderRadius: BorderRadius.circular(10.0),
+            child: DropdownButton<String>(
+              value: selectedValue,
+              focusNode: _focus,
+              isDense: true,
+              icon: const SizedBox.shrink(),
+              underline: const SizedBox.shrink(),
+              style: TextStyles.poppinsBold.copyWith(
+                fontSize: 15.sp,
+                fontWeight: FontWeight.w800,
+                color: Colors.white,
+              ),
+              items: <String>['Low', 'Medium', 'High'].map((String value) {
+                return DropdownMenuItem<String>(
+                  value: value,
+                  child: Text(
+                    value,
+                    style: TextStyles.poppinsBold.copyWith(
+                      fontSize: 15.sp,
+                      fontWeight: FontWeight.w800,
+                      color: Colors.white,
+                    ),
+                  ),
+                );
+              }).toList(),
+              onChanged: (String? str) {
+                if (str != null) {
+                  selectedValue = str;
+                  setState(() {});
+                }
+              },
+            ),
           ),
-          child: DropdownButton<String>(
-            focusNode: _focus,
-            items: <String>['Low', 'Medium', 'High'].map((String value) {
-              return DropdownMenuItem<String>(
-                value: value,
-                child: Text(value),
-              );
-            }).toList(),
-            onChanged: (_) {},
-          ),
-        ),
+        )
       ],
     );
   }

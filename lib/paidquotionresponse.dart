@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:quotionai/core/components/textarea.dart';
 import 'package:quotionai/core/utils/theme/text_styles.dart';
 import 'package:quotionai/generated/gen/assets.gen.dart';
@@ -35,7 +36,7 @@ class _PaidQuotionResponseState extends State<PaidQuotionResponse> {
                 ),
                 Assets.png.logo.image(height: 150.h),
                 20.verticalSpace,
-                TextArea(
+                const TextArea(
                   minLines: 20,
                 ),
                 20.verticalSpace,
@@ -49,7 +50,7 @@ class _PaidQuotionResponseState extends State<PaidQuotionResponse> {
                 ElevatedButton(
                   onPressed: () {
                     // Add your button press logic here
-                    Navigator.pushNamed(context, '/');
+                    context.push('/');
                   },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all<Color>(
