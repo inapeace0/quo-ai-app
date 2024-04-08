@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:go_router/go_router.dart';
 import 'package:quotionai/core/components/dropdown.dart';
 import 'package:quotionai/core/components/numberfield.dart';
 import 'package:quotionai/core/components/textarea.dart';
@@ -101,35 +102,35 @@ class _BusinessQuoteState extends State<BusinessQuote> {
                       fontWeight: FontWeight.w800,
                       color: Colors.red),
                 ),
+                // ElevatedButton(
+                //   onPressed: () {
+                //     // Add your button press logic here
+                //     context.push('/freequotionresponse');
+                //   },
+                //   style: ButtonStyle(
+                //     backgroundColor: MaterialStateProperty.all<Color>(
+                //         const Color(0xFF60A735)),
+                //     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                //       RoundedRectangleBorder(
+                //         borderRadius: BorderRadius.circular(0.0),
+                //       ),
+                //     ),
+                //     minimumSize: MaterialStateProperty.all(
+                //         const Size(double.infinity, 50)),
+                //   ),
+                //   child: Text(
+                //     'Analyze It!',
+                //     style: TextStyles.poppinsBold.copyWith(
+                //       fontSize: 30.sp,
+                //       fontWeight: FontWeight.w800,
+                //     ),
+                //   ),
+                // ),
+                // 20.verticalSpace,
                 ElevatedButton(
                   onPressed: () {
                     // Add your button press logic here
-                    Navigator.pushNamed(context, '/freequotionresponse');
-                  },
-                  style: ButtonStyle(
-                    backgroundColor: MaterialStateProperty.all<Color>(
-                        const Color(0xFF60A735)),
-                    shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                      RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(0.0),
-                      ),
-                    ),
-                    minimumSize: MaterialStateProperty.all(
-                        const Size(double.infinity, 50)),
-                  ),
-                  child: Text(
-                    'Analyze It!',
-                    style: TextStyles.poppinsBold.copyWith(
-                      fontSize: 30.sp,
-                      fontWeight: FontWeight.w800,
-                    ),
-                  ),
-                ),
-                20.verticalSpace,
-                ElevatedButton(
-                  onPressed: () {
-                    // Add your button press logic here
-                    Navigator.pushNamed(context, '/upgrade');
+                    context.push('/paidquotionresponse', extra: {});
                   },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all<Color>(
