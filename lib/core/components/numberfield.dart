@@ -7,8 +7,10 @@ class NumberField extends StatefulWidget {
   const NumberField({
     super.key,
     this.textLabel = "",
+    this.controller,
   });
   final String textLabel;
+  final TextEditingController? controller;
 
   @override
   State<NumberField> createState() => _NumberFieldState();
@@ -16,12 +18,16 @@ class NumberField extends StatefulWidget {
 
 class _NumberFieldState extends State<NumberField> {
   final FocusNode _focus = FocusNode();
+  TextEditingController _controller = TextEditingController();
   bool isSelected = false;
 
   @override
   void initState() {
     super.initState();
     _focus.addListener(_onFocusChange);
+    if (widget.controller != null) {
+      _controller = widget.controller!;
+    }
   }
 
   @override
@@ -53,6 +59,7 @@ class _NumberFieldState extends State<NumberField> {
         ],
         TextField(
           focusNode: _focus,
+          controller: _controller,
           maxLines: 1,
           keyboardType: TextInputType.number,
           inputFormatters: <TextInputFormatter>[

@@ -14,6 +14,10 @@ class AboutMeWidget extends StatefulWidget {
 }
 
 class _AboutMeWidgetState extends State<AboutMeWidget> {
+  final sbTypeController = TextEditingController();
+  final businessLocationController = TextEditingController();
+  final expYearsController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     final language = S.of(context);
@@ -38,14 +42,17 @@ class _AboutMeWidgetState extends State<AboutMeWidget> {
                 20.verticalSpace,
                 TextArea(
                   textLabel: language.servicebusiness_type,
+                  controller: sbTypeController,
                 ),
                 20.verticalSpace,
                 TextArea(
                   textLabel: language.business_location,
+                  controller: businessLocationController,
                 ),
                 20.verticalSpace,
                 TextArea(
                   textLabel: language.years_of_experience,
+                  controller: expYearsController,
                 ),
                 20.verticalSpace,
                 Text(
@@ -58,7 +65,6 @@ class _AboutMeWidgetState extends State<AboutMeWidget> {
                 ElevatedButton(
                   onPressed: () {
                     // Add your button press logic here
-                    print("businessquote");
                     context.push('/businessquote');
                   },
                   style: ButtonStyle(

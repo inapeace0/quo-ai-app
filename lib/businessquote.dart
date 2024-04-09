@@ -130,7 +130,7 @@ class _BusinessQuoteState extends State<BusinessQuote> {
                 ElevatedButton(
                   onPressed: () {
                     // Add your button press logic here
-                    context.push('/paidquotionresponse', extra: {});
+                    context.go('/paidquotionresponse', extra: {});
                   },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all<Color>(

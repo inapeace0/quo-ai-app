@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:go_router/go_router.dart';
@@ -24,6 +25,50 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   bool _isLoading = true;
   Locale _locale = S.delegate.supportedLocales.first;
+  static final GoRouter _appRouter = GoRouter(
+    initialLocation: "/",
+    observers: [
+      seoRouteObserver,
+    ],
+    debugLogDiagnostics: true,
+    routes: [
+      GoRoute(
+        path: '/',
+        pageBuilder: (context, state) => NoTransitionPage<void>(
+          key: state.pageKey,
+          child: const AboutMeWidget(),
+        ),
+      ),
+      GoRoute(
+        path: '/businessquote',
+        pageBuilder: (context, state) => NoTransitionPage<void>(
+          key: state.pageKey,
+          child: const BusinessQuote(),
+        ),
+      ),
+      GoRoute(
+        path: '/freequotionresponse',
+        pageBuilder: (context, state) => NoTransitionPage<void>(
+          key: state.pageKey,
+          child: const FreeQuotionResponse(),
+        ),
+      ),
+      GoRoute(
+        path: '/paidquotionresponse',
+        pageBuilder: (context, state) => NoTransitionPage<void>(
+          key: state.pageKey,
+          child: const PaidQuotionResponse(),
+        ),
+      ),
+      GoRoute(
+        path: '/upgrade',
+        pageBuilder: (context, state) => NoTransitionPage<void>(
+          key: state.pageKey,
+          child: const Upgrading(),
+        ),
+      ),
+    ],
+  );
 
   @override
   void initState() {
@@ -62,55 +107,7 @@ class _MyAppState extends State<MyApp> {
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
               useMaterial3: true,
             ),
-            routerConfig: GoRouter(
-              initialLocation: "/",
-              observers: [
-                seoRouteObserver,
-              ],
-              debugLogDiagnostics: true,
-              routes: [
-                GoRoute(
-                  name: '/',
-                  path: '/',
-                  pageBuilder: (context, state) => NoTransitionPage<void>(
-                    key: state.pageKey,
-                    child: const AboutMeWidget(),
-                  ),
-                ),
-                GoRoute(
-                  name: '/businessquote',
-                  path: '/businessquote',
-                  pageBuilder: (context, state) => NoTransitionPage<void>(
-                    key: state.pageKey,
-                    child: const BusinessQuote(),
-                  ),
-                ),
-                GoRoute(
-                  name: '/freequotionresponse',
-                  path: '/freequotionresponse',
-                  pageBuilder: (context, state) => NoTransitionPage<void>(
-                    key: state.pageKey,
-                    child: const FreeQuotionResponse(),
-                  ),
-                ),
-                GoRoute(
-                  name: '/paidquotionresponse',
-                  path: '/paidquotionresponse',
-                  pageBuilder: (context, state) => NoTransitionPage<void>(
-                    key: state.pageKey,
-                    child: const PaidQuotionResponse(),
-                  ),
-                ),
-                GoRoute(
-                  name: '/upgrade',
-                  path: '/upgrade',
-                  pageBuilder: (context, state) => NoTransitionPage<void>(
-                    key: state.pageKey,
-                    child: const Upgrading(),
-                  ),
-                ),
-              ],
-            ),
+            routerConfig: _appRouter,
           );
         });
   }
