@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quotionai/core/utils/theme/text_styles.dart';
 
@@ -7,8 +6,10 @@ class DropdownField extends StatefulWidget {
   const DropdownField({
     super.key,
     this.textLabel = "",
+    required this.onChange,
   });
   final String textLabel;
+  final Function(String) onChange;
 
   @override
   State<DropdownField> createState() => _DropdownFieldState();
@@ -93,6 +94,7 @@ class _DropdownFieldState extends State<DropdownField> {
               onChanged: (String? str) {
                 if (str != null) {
                   selectedValue = str;
+                  widget.onChange(str);
                   setState(() {});
                 }
               },

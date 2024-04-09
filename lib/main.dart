@@ -40,10 +40,18 @@ class _MyAppState extends State<MyApp> {
       ),
       GoRoute(
         path: '/businessquote',
-        pageBuilder: (context, state) => NoTransitionPage<void>(
-          key: state.pageKey,
-          child: const BusinessQuote(),
-        ),
+        pageBuilder: (context, state) {
+          final args = state.extra as Map<String, dynamic>;
+
+          return NoTransitionPage<void>(
+            key: state.pageKey,
+            child: BusinessQuote(
+              sbTypeText: args["sbTypeText"],
+              businessLocationText: args["businessLocationText"],
+              expYearsText: args["expYearsText"],
+            ),
+          );
+        },
       ),
       GoRoute(
         path: '/freequotionresponse',
@@ -54,10 +62,16 @@ class _MyAppState extends State<MyApp> {
       ),
       GoRoute(
         path: '/paidquotionresponse',
-        pageBuilder: (context, state) => NoTransitionPage<void>(
-          key: state.pageKey,
-          child: const PaidQuotionResponse(),
-        ),
+        pageBuilder: (context, state) {
+          final args = state.extra as Map<String, dynamic>;
+
+          return NoTransitionPage<void>(
+            key: state.pageKey,
+            child: PaidQuotionResponse(
+              content: args["content"],
+            ),
+          );
+        },
       ),
       GoRoute(
         path: '/upgrade',

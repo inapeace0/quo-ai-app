@@ -7,13 +7,25 @@ import 'package:quotionai/generated/gen/assets.gen.dart';
 import 'package:quotionai/generated/l10n.dart';
 
 class PaidQuotionResponse extends StatefulWidget {
-  const PaidQuotionResponse({super.key});
+  const PaidQuotionResponse({super.key, required this.content});
+
+  final String content;
 
   @override
   State<PaidQuotionResponse> createState() => _PaidQuotionResponseState();
 }
 
 class _PaidQuotionResponseState extends State<PaidQuotionResponse> {
+  final contentController = TextEditingController();
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    contentController.text = widget.content;
+  }
+
   @override
   Widget build(BuildContext context) {
     final language = S.of(context);
@@ -36,8 +48,10 @@ class _PaidQuotionResponseState extends State<PaidQuotionResponse> {
                 ),
                 Assets.png.logo.image(height: 150.h),
                 20.verticalSpace,
-                const TextArea(
+                TextArea(
                   minLines: 20,
+                  controller: contentController,
+                  isEditable: false,
                 ),
                 20.verticalSpace,
                 Text(
