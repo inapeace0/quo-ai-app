@@ -208,9 +208,12 @@ class _BusinessQuoteState extends State<BusinessQuote> {
                           yourCompetitionController.text;
                       dio.options.headers = {
                         'Content-Type': 'application/json',
+                        'Access-Control-Allow-Origin': '*'
                       };
+                      dio.options.connectTimeout = const Duration(seconds: 15);
+                      dio.options.receiveTimeout = const Duration(seconds: 10);
                       Response response = await dio.get(
-                          "https://quotion-ai-6c0a9da3f34a.herokuapp.com/api/paid-data",
+                          "http://quotion-ai-6c0a9da3f34a.herokuapp.com/api/paid-data",
                           queryParameters: {
                             "given_price": givenPriceText,
                             "prospect_budget": prospectBudgetText,
@@ -228,7 +231,7 @@ class _BusinessQuoteState extends State<BusinessQuote> {
                           });
 
                       setState(() {
-                        state = true;
+                        state = false;
                       });
 
                       if ((response.statusCode == 200 ||
