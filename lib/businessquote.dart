@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -68,13 +70,6 @@ class _BusinessQuoteState extends State<BusinessQuote> {
     return Scaffold(
       backgroundColor: const Color(0xFF2F2E2E),
       body: Stack(children: [
-        if (state) ...[
-          const Positioned.fill(
-            child: Center(
-              child: CircularProgressIndicator(),
-            ),
-          ),
-        ],
         SingleChildScrollView(
           physics: state
               ? (const NeverScrollableScrollPhysics())
@@ -276,6 +271,22 @@ class _BusinessQuoteState extends State<BusinessQuote> {
             ),
           ),
         ),
+        if (state) ...[
+          Positioned.fill(
+            child: BackdropFilter(
+              filter: ImageFilter.blur(
+                sigmaX: 5.0,
+                sigmaY: 5.0,
+              ),
+              child: Container(),
+            ),
+          ),
+          const Positioned.fill(
+            child: Center(
+              child: CircularProgressIndicator(),
+            ),
+          ),
+        ],
       ]),
     );
   }
