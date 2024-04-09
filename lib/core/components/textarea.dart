@@ -5,17 +5,18 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:quotionai/core/utils/theme/text_styles.dart';
 
 class TextArea extends StatefulWidget {
-  const TextArea({
-    super.key,
-    this.textLabel = "",
-    this.minLines = 3,
-    this.borderColor = const Color(0xFFCB8927),
-    this.controller,
-  });
+  const TextArea(
+      {super.key,
+      this.textLabel = "",
+      this.minLines = 3,
+      this.borderColor = const Color(0xFFCB8927),
+      this.controller,
+      this.isEditable = true});
   final String textLabel;
   final int minLines;
   final Color borderColor;
   final TextEditingController? controller;
+  final bool isEditable;
 
   @override
   State<TextArea> createState() => _TextAreaState();
@@ -65,6 +66,7 @@ class _TextAreaState extends State<TextArea> {
         TextField(
           focusNode: _focus,
           controller: _controller,
+          readOnly: !widget.isEditable,
           minLines: widget.minLines,
           maxLines: widget.minLines,
           keyboardType: TextInputType.multiline,

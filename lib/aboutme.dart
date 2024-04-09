@@ -19,6 +19,16 @@ class _AboutMeWidgetState extends State<AboutMeWidget> {
   final expYearsController = TextEditingController();
 
   @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    sbTypeController.text = "E-commerce";
+    businessLocationController.text = "Ontario, Canada";
+    expYearsController.text = "2";
+  }
+
+  @override
   Widget build(BuildContext context) {
     final language = S.of(context);
 
@@ -65,7 +75,15 @@ class _AboutMeWidgetState extends State<AboutMeWidget> {
                 ElevatedButton(
                   onPressed: () {
                     // Add your button press logic here
-                    context.push('/businessquote');
+                    final sbTypeText = sbTypeController.text;
+                    final businessLocationText =
+                        businessLocationController.text;
+                    final expYearsText = expYearsController.text;
+                    context.push('/businessquote', extra: {
+                      "sbTypeText": sbTypeText,
+                      "businessLocationText": businessLocationText,
+                      "expYearsText": expYearsText
+                    });
                   },
                   style: ButtonStyle(
                     backgroundColor: MaterialStateProperty.all<Color>(
