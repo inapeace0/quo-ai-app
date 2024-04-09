@@ -10,10 +10,12 @@ class TextArea extends StatefulWidget {
     this.textLabel = "",
     this.minLines = 3,
     this.borderColor = const Color(0xFFCB8927),
+    this.controller,
   });
   final String textLabel;
   final int minLines;
   final Color borderColor;
+  final TextEditingController? controller;
 
   @override
   State<TextArea> createState() => _TextAreaState();
@@ -21,12 +23,16 @@ class TextArea extends StatefulWidget {
 
 class _TextAreaState extends State<TextArea> {
   final FocusNode _focus = FocusNode();
+  TextEditingController _controller = TextEditingController();
   bool isSelected = false;
 
   @override
   void initState() {
     super.initState();
     _focus.addListener(_onFocusChange);
+    if (widget.controller != null) {
+      _controller = widget.controller!;
+    }
   }
 
   @override
@@ -58,6 +64,7 @@ class _TextAreaState extends State<TextArea> {
         ],
         TextField(
           focusNode: _focus,
+          controller: _controller,
           minLines: widget.minLines,
           maxLines: widget.minLines,
           keyboardType: TextInputType.multiline,
